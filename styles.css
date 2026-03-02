@@ -1,0 +1,373 @@
+/* styles.css
+   A4: Intro CSS Fill-in Template
+*/
+
+/* ===== Base styles (mostly done) ===== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Calibri, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: #1C1919;
+  background: #FAF8F5;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== Header ===== */
+/* .site-header → <header> */
+header {
+  border-bottom: 1px solid #eee;
+  background: #FAF8F5;
+  padding: 0 4%;
+}
+
+/* .header-inner → the inside of <header> */
+/* TODO A (Flexbox):
+   Make the brand appear on the left and the navigation on the right.
+   Requirements:
+     - Use flexbox
+     - Center items vertically
+     - Put space between left and right
+*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 4%;
+}
+
+/* .brand → <h1> inside header */
+header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* .brand .dot → not used in your HTML, skipped */
+/* TODO B (Color):
+   Make the dot a light blue accent color (choose a readable blue).
+   (Applied to header h1 accent instead)
+*/
+header h1 {
+  color: #1C1919;
+}
+
+/* .site-nav a → <nav> a inside header */
+header nav a {
+  margin-left: 18px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #525151;
+}
+
+/* hide the bullet list styling in header nav */
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* ===== Hero ===== */
+/* .hero → <section class="hero"> */
+/* TODO C (Background image hero):
+   Turn this into a hero banner with a background image.
+   Requirements:
+     - Use a background image URL (use the one below)
+     - Make it cover the area and center it
+     - Add a light overlay so text is readable (hint: use a linear-gradient + image)
+     - Set a minimum height (e.g., 360px)
+*/
+/* My image:
+   https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=60
+*/
+section.hero {
+  background-image:
+    linear-gradient(rgba(250, 248, 245, 0.45), rgba(250, 248, 245, 0.45)),
+url("images/madison-sunset.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 360px;
+}
+
+/* hide the inline <img> tag inside hero since we use CSS background instead */
+section.hero img {
+  display: none;
+}
+
+/* .hero-content → content inside .hero */
+/* TODO D (Center content):
+   Center the hero text horizontally.
+   Add vertical padding so it doesn't feel cramped.
+*/
+section.hero {
+  text-align: center;
+  padding: 80px 4%;
+}
+
+/* hero h2 acts as h1 headline */
+/* TODO E (Typography):
+   Make the headline large and uppercase.
+   (e.g., font-size around 42–48px, text-transform uppercase)
+*/
+section.hero h2 {
+  margin: 0;
+  font-size: 44px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1C1919;
+}
+
+/* hero p acts as subhead */
+/* TODO F (Typography):
+   Make this slightly smaller than h1 and a softer color.
+   (e.g., font-size ~20–24px; color #555)
+*/
+section.hero p {
+  margin: 6px 0 22px;
+  font-size: 20px;
+  color: #525151;
+  font-weight: 400;
+}
+
+/* ===== Buttons ===== */
+/* .btn → <a class="cta-button"> */
+.cta-button {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* .btn-dark → hero button */
+/* TODO G (Button styling):
+   Make this a dark filled button with white text.
+   (e.g., background #333; color #fff)
+*/
+section.hero .cta-button {
+  background: #1C1919;
+  color: #FAF8F5;
+}
+
+/* .btn-outline → CTA section button */
+/* TODO H (Button styling):
+   Make this an outlined button with a blue border and matching text.
+   (e.g., border: 2px solid ...; color: ...; background: transparent)
+*/
+section.cta .cta-button {
+  border: 2px solid #8B7AB8;
+  color: #8B7AB8;
+  background: transparent;
+}
+
+/* ===== Features (3 columns) — Professional Experience articles ===== */
+/* .features → <section id="experience"> */
+#experience {
+  padding: 42px 4%;
+}
+
+/* .features-grid → the wrapper of .feature articles */
+/* TODO I (Layout):
+   Arrange the three feature blocks in a row (desktop).
+   Requirements:
+     - Use flexbox
+     - Add a gap between items (e.g., 26px)
+*/
+#experience {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  align-items: flex-start;
+}
+
+/* keep the h2 full width so it sits above the row */
+#experience h2 {
+  flex: 0 0 100%;
+  margin: 0 0 16px;
+}
+
+/* .feature → <article class="feature"> */
+/* TODO J (Sizing / alignment):
+   Make each feature take equal width and center its text.
+*/
+article.feature {
+  flex: 1;
+  text-align: center;
+  min-width: 200px;
+}
+
+article.feature img {
+  width: 56px;
+  height: 56px;
+  border: 2px solid #9CAF88;
+  border-radius: 999px;
+  object-fit: cover;
+  margin: 0 auto 12px;
+  display: block;
+}
+
+/* ===== Featured content ===== */
+/* .featured → <section id="featured"> */
+#featured {
+  padding: 42px 4% 36px;
+  background: #f0ede8;
+  text-align: center;
+}
+
+/* .section-title → h2 inside #featured */
+#featured h2 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* .section-lede → p inside #featured */
+#featured p {
+  text-align: center;
+  max-width: 680px;
+  margin: 10px auto 22px;
+  color: #525151;
+  font-size: 13px;
+}
+
+/* hide the inline image in featured (broken local file) */
+#featured img {
+  display: none;
+}
+
+/* ===== Secondary content — Involvement & Skills ===== */
+/* .secondary → #involvement and #skills */
+#involvement,
+#skills,
+#certifications {
+  padding: 34px 4% 44px;
+}
+
+/* .secondary-grid → articles inside involvement */
+/* TODO K (Layout):
+   Put the two cards next to each other on desktop.
+   Requirements:
+     - Use flexbox
+     - Add a gap (e.g., 26px)
+*/
+#involvement {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  align-items: flex-start;
+}
+
+#involvement h2 {
+  flex: 0 0 100%;
+  margin: 0 0 16px;
+}
+
+/* .card → <article> inside involvement */
+/* TODO L (Card styling):
+   Give each card a border and make it take equal width.
+   (Hint: flex: 1; border: 1px solid #eee)
+*/
+#involvement article {
+  flex: 1;
+  border: 1px solid #eee;
+  padding: 18px;
+  min-width: 200px;
+}
+
+#involvement article h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+#involvement article p {
+  margin: 0 0 14px;
+  color: #525151;
+  font-size: 13px;
+}
+
+/* ===== General section padding ===== */
+#about,
+#education {
+  padding: 34px 4%;
+}
+
+/* ===== CTA ===== */
+/* .cta → <section class="cta"> */
+section.cta {
+  background: #f0ede8;
+  padding: 42px 4%;
+}
+
+/* .cta-inner → inside .cta */
+/* TODO N (Center CTA):
+   Center the CTA text and button.
+*/
+section.cta {
+  text-align: center;
+}
+
+/* ===== Footer ===== */
+/* .site-footer → <footer> */
+footer {
+  background: #FAF8F5;
+  border-top: 1px solid #eee;
+  padding: 24px 4%;
+}
+
+/* .footer-inner → inside footer */
+/* TODO O (Footer layout):
+   Arrange footer-left on the left and footer link columns on the right.
+   Requirements:
+     - Use flexbox
+     - Add a gap (e.g., 24px)
+     - Space items out (left/right)
+*/
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* .footer-left → <p> copyright text */
+footer > p {
+  max-width: 360px;
+  color: #525151;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* .footer-cols → the two <nav> elements in footer */
+footer nav {
+  font-size: 12px;
+}
+
+footer nav h3 {
+  margin: 0 0 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1C1919;
+}
+
+/* hide bullet styling in footer nav lists */
+footer nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer nav a {
+  display: block;
+  font-size: 12px;
+  color: #C89B9C;
+  margin: 6px 0;
+}
